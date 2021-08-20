@@ -10,10 +10,12 @@ Requirements:
     - group, direction, power
     - The power total must have 4 decimal digits
     - Methods you write must be unit tested
-    - Methods to collect data should be implemented on Measurements.java
 3) Write a method that outputs a list of all devices, and their max power, ordered by group, direction and power(ascending):
     - Device: deviceId, group, direction, power.max
     - The deviceId must be the UUID without '-' 
     - The max power must have 4 decimal digits
     - Methods you write must be unit tested
-    - Methods to collect data should be implemented on Measurements.java
+
+Ensure your code can withstand changing requirements.
+
+
