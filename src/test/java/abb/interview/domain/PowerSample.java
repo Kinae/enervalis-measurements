@@ -5,7 +5,7 @@ import java.util.List;
 public class PowerSample {
 
     // Should not use it like that in production, should use fake data
-    static List<Power> firstItems() {
+    public static List<Power> firstItems() {
         return List.of(
                 power(29.163184452205893, 65.44317306454077, 47.303178758373335, 1626300000),
                 power(13.620455434219808, 99.74979414798125, 56.68512479110053, 1626300900),

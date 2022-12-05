@@ -13,4 +13,11 @@ public class MeasurementSample {
         return measurement;
     }
 
+    public static Measurements measurements() {
+        Measurements measurements = new Measurements();
+        Measurement item = firstItem();
+        measurements.put(item.getKey(), item);
+        return measurements;
+    }
+
 }
