@@ -2,6 +2,7 @@ package abb.interview.reader;
 
 import abb.interview.domain.Measurement;
 import abb.interview.domain.MeasurementSample;
+import abb.interview.domain.Measurements;
 import abb.interview.domain.Power;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -54,6 +55,28 @@ class MeasurementReaderTest {
                     () -> assertEquals(expectedPower.getTimestamp(), actualPower.getTimestamp())
             );
         }
+    }
+
+    @Test
+    void groupByKeyShouldFillTheMeasurementsObject() {
+        Measurements measurements = new Measurements();
+
+        Measurement sample = MeasurementSample.firstItem();
+        List<Measurement> samples = List.of(sample);
+        MeasurementReader.groupByKey(measurements, samples);
+
+        Assertions.assertEquals(measurements.size(), samples.size());
+        Assertions.assertNotNull(measurements.get(sample.getKey()));
+
+        Measurement actual = measurements.get(sample.getKey());
+
+        // Testing values of object did not change
+        assertAll("measurement",
+                () -> assertEquals(sample.getResourceId(), actual.getResourceId()),
+                () -> assertEquals(sample.getDeviceName(), actual.getDeviceName()),
+                () -> assertEquals(sample.getDeviceGroup(), actual.getDeviceGroup()),
+                () -> assertEquals(sample.getDirection(), actual.getDirection())
+        );
     }
 
 }

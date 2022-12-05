@@ -1,11 +1,19 @@
 package abb.interview.domain;
 
+import abb.interview.reader.MeasurementReader;
+
+import java.io.File;
+import java.io.IOException;
+
 public class Application {
 
-    private final Measurements measurements = new Measurements();
+    private static final Measurements measurements = new Measurements();
 
-    public static void main(String[] args) {
-        // read measurements.json into Measurements
+    public static void main(String[] args) throws IOException {
+        // read measurements.json into Measurements.
+        // TODO deal with IOException
+        MeasurementReader.readValueAndGroupByKey(measurements, new File("src/main/resources/measurements.json"));
+
         // print first
         // print second
     }
