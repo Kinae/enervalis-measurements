@@ -1,5 +1,6 @@
 package abb.interview.domain;
 
+import abb.interview.display.DeviceDisplay;
 import abb.interview.reader.MeasurementReader;
 
 import java.io.File;
@@ -15,6 +16,14 @@ public class Application {
         MeasurementReader.readValueAndGroupByKey(measurements, new File("src/main/resources/measurements.json"));
 
         // print first
+        DeviceDisplay.printDeviceFormatOne(measurements);
+
+        System.out.println("------------------------------");
+
         // print second
+        DeviceDisplay.printDeviceFormatTwo(measurements);
+
+
+
     }
 }
